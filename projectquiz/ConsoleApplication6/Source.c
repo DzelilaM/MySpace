@@ -1,4 +1,8 @@
 ﻿#include <stdio.h>
+int points = 0;
+int correctAnswers = 0;
+int incorrectAnswers = 0;
+
 void Welcome()
 {
 	printf("Welcome to new quiz\n\n");
@@ -14,34 +18,30 @@ void space()
 }
 void next()
 {
-	printf("Next question is coming");
+	printf("Next question is:  ");
 }
 
 void answer1()
-{
-	int points = 0;
-	int correctanswers = 0;
-
-
+{    
 	printf("Your answer is correct\n");
 	points += 5;
-	correctanswers += 1;
-
+	correctAnswers += 1;
 }
 void answer2()
 {
-	int incorrectanswers = 0;
-	int points = 0;
-
-	printf("Your answer is not correct :(\n");
-	points -= 2;
-	incorrectanswers += 1;
-
+	printf("Your answer is not correct\n");
+		points -= 2;
+		incorrectAnswers += 1;
+}
+void cls()
+{     
+	system("cls");
 }
 void math()
 {   
-	system("cls");
+	system("COLOR 84");
 	int answer;
+	cls();
 	printf("How much is 5*5-2*2??\n");
 	printf("1 21\n");
 	printf("2 46\n");
@@ -53,6 +53,7 @@ void math()
 		answer1();
 	else
 		answer2();
+	printf("\n");
 	space();
 	next();
 	space();
@@ -69,19 +70,18 @@ void math()
 		answer2();
 	space();
 	next();
-		space();
-		printf("What is 3/4??\n");
-		printf("1 0,55\n");
-		printf("2 0,65\n");
-		printf("3 0,75\n");
-		printf("4 0,85\n");
-		printf("Enter your result\n");
-		scanf_s("%d", answer);
-		if (answer == 3)
-			answer1();
-		else
-			answer2();
-	
+	space();
+	printf("What is 3/4??\n");
+	printf("1 0,55\n");
+	printf("2 0,65\n");
+	printf("3 0,75\n");
+	printf("4 0,85\n");
+	printf("Enter your result\n");
+	scanf_s("%d", &answer);
+	if (answer == 3)
+		answer1();
+	else
+		answer2();
 	space();
 	next();
 	space();
@@ -97,10 +97,28 @@ void math()
 	else
 		answer2();
 	space();
+	next();
+	space();
+	printf("What isresult if somebody divide 10*10*100*10/100 with 10??\n");
+	printf("1 10\n");
+	printf("2 10\n");
+	printf("3 1000\n");
+	printf("4 1000\n");
+	printf("What do you think??\n");
+	scanf_s("%d", &answer);
+	if (answer == 4)
+		answer1();
+	else
+		answer2();
+	space();
 
+	printf("You have %d correct answers and your score is %d points\n", correctAnswers, points);
+	system("Pause");
 }
 void history()
 {
+	system("COLOR A4");
+	cls();
 	int answer;
 	printf("What found Columbo??\n");
 	printf("1 Minhen\n");
@@ -175,10 +193,17 @@ void history()
 	else
 		answer2();
 	space();
+
+	printf("You have %d correct answers and your score is %d points\n", correctAnswers, points);
+	system("Pause");
 }
+
+
 void capitalcity()
 {
+	system("COLOR B5");
 	int answer;
+	cls();
 	printf("What is capital city of England??\n");
 	printf("1 Paris\n");
 	printf("2 Madrid\n");
@@ -191,6 +216,7 @@ void capitalcity()
 		answer1();
 	else
 		answer2();
+
 	space();
 	next();
 	space();
@@ -201,7 +227,7 @@ void capitalcity()
 	printf("4 Sarajevo\n");
 	printf("And it was at year: \n");
 	scanf_s("%d", &answer);
-	if (answer == 2)
+	if (answer == 1)
 		answer1();
 	else
 		answer2();
@@ -234,7 +260,8 @@ void capitalcity()
 	else
 		answer2();
 	space();
-	
+	next();
+	space();
 	printf("And and what is capital city of China??\n");
 	printf("1 Kairo\n");
 	printf("2.Peking\n");
@@ -246,9 +273,16 @@ void capitalcity()
 		answer1();
 	else
 		answer2();
+	printf("You have %d correct answers and your score is %d points\n", correctAnswers, points);
+	
+	system("Pause");
+
 }
 void litheraty()
 {
+
+	system("COLOR E1");
+	cls();
 	int answer;
 
 	printf("Who wrote Ana Karenjina??\n");
@@ -307,10 +341,10 @@ void litheraty()
 	space();
 	next();
 	space();
-    printf("Who wrote the book Evgenije Onjegin??\n");
+	printf("Who wrote the book Evgenije Onjegin??\n");
 	printf("1 Ljermontov\n");
 	printf("2 Puskin\n");
-    printf("3 Goethe\n");
+	printf("3 Goethe\n");
 	printf("4 Flober\n");
 	printf("Evgenije Onjegin is written by...\n");
 	scanf_s("%d", &answer);
@@ -319,38 +353,64 @@ void litheraty()
 	else
 		answer2();
 	space();
-	
+	printf("You have %d correct answers and your score is %d points\n", correctAnswers, points);
+
+	system("Pause");
 }
-
-
-
 void main()
 {
+	system("COLOR E3");
 	int start;
 	int num;
 	Welcome();
-
+	printf("\n\n");
 	printf("Enter number 1 to start or 0 o cancel quiz\n");
 	scanf_s("%d", &start);
 	if (start == 1)
 	{
+		printf("\n");
 		printf("Now you can choose field of questions\n\n");
 		printf("If you want math press number 1\n");
 		printf("If you want hystory press number 2\n");
 		printf("If you want capital cities press number 3\n");
 		printf("If you want litheraty press number 4\n");
+		printf("\n\n");
 		scanf_s("%d", &num);
 		if (num == 1)
+		{
+			printf("                  Your choise is Math \n");
+			printf("                       Good luck\n");
 			math();
+		}
 		if (num == 2)
+		{
+			printf("                  Your choise is History \n");
+			printf("                       Good luck\n");
 			history();
+		}
 		if (num == 3)
-			capitalcity();
-		if (num == 4)
-			litheraty();
+		{
 
-		
+			printf("                  Your choise is Capital cities \n");
+			printf("                       Good luck\n");
+			capitalcity();
+		}
+		if (num == 4)
+		{
+
+			printf("                  Your choise is Litheraty \n");
+			printf("                       Good luck\n");
+			litheraty();
+		}
+
 	}
-	else if (start == 0)
-		printf("You canceled quiz so goodbye \n");
-}
+		else if (start == 0)
+		{printf("You canceled quiz so goodbye \n");
+		
+	system("Pause");
+	}
+	
+				
+
+	}
+	
